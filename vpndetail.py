@@ -5,7 +5,7 @@ import readchar
 
 #vpnbook
 
-html = requests.get("https://www.vpnbook.com/freevpn").text
+html = requests.get("https://www.vpnbook.com/freevpn", timeout=60).text
 file = soup(html,'lxml')
 alllinks = file.find('ul', class_='disc')
 link = alllinks.find_all('li')
@@ -19,7 +19,7 @@ print(f"https://www.vpnbook.com/{passw}")
 
 
 #vertual location
-html1 = requests.get("https://www.virtuallocation.com/vpn/free-pptp-vpn.html").text
+html1 = requests.get("https://www.virtuallocation.com/vpn/free-pptp-vpn.html", timeout=60).text
 page = (html,"lxml")
 table_data = page.find("table", class_="table table-inner-middle table-responsive-md table-bordered table-striped-light font-size-large")
 tr = table_data.find_all("tr")
